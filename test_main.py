@@ -39,11 +39,11 @@ def test_auth(client):
     token = response.json['token']
     assert token is not None
 
-# def test_400_sent_no_form_data_auth(client):
-#     body = {'email': "",
-#             'password': ""}
-#     response = client.post('/auth', 
-#                            data=json.dumps(body),
-#                            content_type='application/json')
+def test_400_sent_no_form_data_auth(client):
+    body = {'email': "",
+            'password': ""}
+    response = client.post('/auth', 
+                           data=json.dumps(body),
+                           content_type='application/json')
 
-#     assert response.json.message == 'Missing parameter: email'
+    assert response.json["message"] == 'Missing parameter: email'
