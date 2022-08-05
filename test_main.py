@@ -46,6 +46,4 @@ def test_400_sent_no_form_data_auth(client):
                            data=json.dumps(body),
                            content_type='application/json')
 
-    assert response.status_code == 400
-    token = response.json['token']
-    assert token is None
+    assert response.json.message == 'Missing parameter: email'
