@@ -40,7 +40,7 @@ def test_auth(client):
 
 def test_400_sent_no_form_data_auth(client):
     body = {'email': "",
-            'password': "12245"}
+            'password': ""}
     response = client.post('/auth', 
                            data=json.dumps(body),
                            content_type='application/json')
